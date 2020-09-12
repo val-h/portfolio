@@ -4,6 +4,10 @@ body {
     font-size: larger;
 }
 
+.logo {
+    background-image: white url('images/logo.png') no-repeat;
+}
+
 .header-wrapper {
     margin: 4% 12%;
     text-align: center;
