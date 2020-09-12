@@ -1,0 +1,22 @@
+/* Enough progress for today, time to sleep */
+body {
+    font-family: monospace;
+    font-size: larger;
+}
+
+.header-wrapper {
+    margin: 4% 12%;
+    text-align: center;
+}
+
+.content-header {
+    text-align: center;
+}
+
+.content {
+    margin: 4% 12%;
+}
+
+.credentials {
+    text-align: center;
+}

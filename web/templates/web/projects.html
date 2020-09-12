@@ -1,0 +1,18 @@
+{% extends 'web/base.html' %}
+
+{% block header %}
+    <h1>My Projects</h1>
+    <h3>Created with passion!</h3>
+{% endblock %}
+
+{% block content %}
+    <!-- Sample projects build -->
+    <div class="project">
+        {% for project in projects %}
+            <h2>{{ project.name }}</h2>
+            <p>{{ project.desc }}</p>
+        {% empty %}
+            <h2>Too bad, so sad! No projects : (</h2>
+        {% endfor %}
+    </div>
+{% endblock %}
