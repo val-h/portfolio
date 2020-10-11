@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Project
+
 # Create your views here.
 def index(request):
     """Displays the home page."""
@@ -8,7 +10,9 @@ def index(request):
 def projects(request):
     """Makes a query to the database and takes all the
     projects from there, passes them as context."""
-    return render(request, 'web/projects.html')
+    projects = Project.objects.all()
+    context = {'projects': projects}
+    return render(request, 'web/projects.html', context)
 
 def project(request):
     """Renders a single project page with detailed info

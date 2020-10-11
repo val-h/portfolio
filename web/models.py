@@ -6,4 +6,4 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     desc = models.TextField()
     # Will include images and other juicy stuff : >
-    
+    cover = models.ImageField(upload_to='web/images')
