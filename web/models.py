@@ -1,3 +1,4 @@
+from portfolio.settings import MEDIA_ROOT
 from django.db import models
 
 # Create your models here.
@@ -6,4 +7,4 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     desc = models.TextField()
     # Will include images and other juicy stuff : >
-    cover = models.ImageField(upload_to='web/images')
+    cover = models.ImageField(upload_to='images')

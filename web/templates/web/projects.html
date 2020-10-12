@@ -11,8 +11,8 @@
         {% for project in projects %}
             <h2>{{ project.name }}</h2>
             <p>{{ project.desc }}</p>
-            
-            
+            <!-- Image problems : | -->
+            <img src="{{ project.cover.url }}" alt="{{ project.cover.url }}">
         {% empty %}
             <h2>Too bad, so sad! No projects : (</h2>
         {% endfor %}
