@@ -24,3 +24,9 @@ body {
 .credentials {
     text-align: center;
 }
+
+.circle-image {
+    border: 1px darkgray solid;
+    border-radius: 50%;
+    /* add shadow */
+}
