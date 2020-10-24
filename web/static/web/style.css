@@ -13,6 +13,24 @@ body {
     text-align: center;
 }
 
+.footer-wrapper {
+    margin: 2% 15%;
+
+}
+
+.footer-links {
+    margin: 0 15%;
+}
+
+.sitemap {
+    margin: 0 15%;
+    
+}
+
+.footer-info {
+    margin: 0 15%;
+}
+
 .content-header {
     text-align: center;
 }

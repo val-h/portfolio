@@ -23,7 +23,7 @@ urlpatterns = [
     # In progress
  
     # Single project page
-    #path('projects/<str:prj_name>/', views.project, name='project')
+    # path('projects/<str:prj_name>/', views.project, name='project')
 ]
 
 if settings.DEBUG:
