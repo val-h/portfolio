@@ -17,9 +17,13 @@ def projects(request):
 def project(request, prj_name: str):
     """Renders a single project page with detailed info
     and complete focus on this project."""
-    # project = Project.objects.get(name=prj_name)
-    # context = {'project': project}
-    # return render(request, 'web/project.html', context)
+
+    def pretify_url():
+        pass
+
+    project = Project.objects.get(name=prj_name)
+    context = {'project': project}
+    return render(request, 'web/project.html', context)
     
 def about_me(request):
     """About me page."""

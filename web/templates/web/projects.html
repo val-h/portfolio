@@ -9,9 +9,10 @@
     <!-- Sample projects build -->
     <div class="project">
         {% for project in projects %}
-            <!-- <a href="{% url 'web:project' {{ project.name }} %}"> -->
+        <!-- fookin worked! -->
+            <a href="{% url 'web:project' project.name %}">
                 <h2>{{ project.name }}</h2>
-            <!-- </a> -->
+            </a>
             <p>{{ project.desc }}</p>
             <!-- Image problems : | -->
             <!-- FIXED!, somewhat : D -->
