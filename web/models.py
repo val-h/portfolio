@@ -8,3 +8,6 @@ class Project(models.Model):
     desc = models.TextField()
     # Will include images and other juicy stuff : >
     cover = models.ImageField(upload_to='images')
+
+    def __str__(self):
+        return self.name

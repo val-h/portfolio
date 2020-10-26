@@ -2,10 +2,14 @@
 
 {% block header %}
     <h1>{{ project.name }}</h1>
-    <!-- <h3>Description</h3> -->
+    <h3>{{ project.desc }}</h3>
 {% endblock header %}
 
 {% block content %}
+
+    {% if project.cover %}
+        <img src="{{ project.cover.url }}" alt="{{ project.name }}">
+    {% endif %}
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
