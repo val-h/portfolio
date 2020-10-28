@@ -18,8 +18,10 @@ def project(request, prj_name: str):
     """Renders a single project page with detailed info
     and complete focus on this project."""
 
+    # makes the project name better looking in the url 
+    # Alien Invasion -> alien-invasion
     def pretify_url():
-        pass
+        return prj_name.lower().replace(' ', '-')
 
     project = Project.objects.get(name=prj_name)
     context = {'project': project}
