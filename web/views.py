@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 
 from .models import Project
+from .forms import ContactForm
+from portfolio.settings import RECEPIENT_EMAIL
 
 # Create your views here.
 def index(request):
@@ -20,8 +24,8 @@ def project(request, prj_name: str):
 
     # makes the project name better looking in the url 
     # Alien Invasion -> alien-invasion
-    def pretify_url():
-        return prj_name.lower().replace(' ', '-')
+    # def pretify_url():
+    #     return prj_name.lower().replace(' ', '-')
 
     project = Project.objects.get(name=prj_name)
     context = {'project': project}
@@ -33,4 +37,20 @@ def about_me(request):
 
 def contact(request):
     """Page containing the contact form plus a bit of info."""
-    return render(request, 'web/contact.html')
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, [RECEPIENT_EMAIL])
+            except BadHeaderError:
+                return HttpResponseRedirect('Invalid header found.')
+            return redirect('web:success')
+    return render(request, 'web/contact.html', {'form': form})
+
+def success(request):
+    return HttpResponse('Success, Thank you for your message!')

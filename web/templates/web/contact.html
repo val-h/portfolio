@@ -8,5 +8,10 @@
 {% block content %}
     <p>Hire this web developer</p>
 
-    <p>Sample contact form</p>
+    <h3>Contact me:</h3>
+    <form action="{% url 'web:contact' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
 {% endblock%}

@@ -21,7 +21,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
 
     # In progress
- 
+    path('success/', views.success, name='success'),
     # Single project page
     path('projects/<str:prj_name>/', views.project, name='project')
 ]

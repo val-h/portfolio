@@ -133,4 +133,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/val-h/Dev/portfolio/web/media/'
 
 DEFAULT_EMAIL_FROM = str(os.getenv('DEFAULT_EMAIL_FROM'))
-EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+RECEPIENT_EMAIL = str(os.getenv('RECEPIENT_EMAIL'))
