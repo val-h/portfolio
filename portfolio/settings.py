@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+# Hiding specific information
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9%2277mit(3umb%#b^0*lzuw6au@h78_h-(0#z#22i=mr#c3=d'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,3 +131,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'statticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/val-h/Dev/portfolio/web/media/'
+
+DEFAULT_EMAIL_FROM = str(os.getenv('DEFAULT_EMAIL_FROM'))
+EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
