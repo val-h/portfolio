@@ -37,6 +37,8 @@ def about_me(request):
 
 def contact(request):
     """Page containing the contact form plus a bit of info."""
+    # SMTP server still not set up
+    # https://learndjango.com/tutorials/django-email-contact-form
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -53,4 +55,4 @@ def contact(request):
     return render(request, 'web/contact.html', {'form': form})
 
 def success(request):
-    return HttpResponse('Success, Thank you for your message!')
+    return render(request, 'web/success.html')

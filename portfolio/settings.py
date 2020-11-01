@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 
 # Hiding specific information
+# https://dev.to/vladyslavnua/how-to-protect-your-django-secret-and-oauth-keys-53fl
 from dotenv import load_dotenv
 load_dotenv()
 
