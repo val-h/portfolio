@@ -1,0 +1,12 @@
+{% extends 'web/base.html' %}
+
+{% block header %}
+    <h1>SUCCESS!</h1>
+{% endblock %}
+
+{% block content %}
+    <p>Thank you for contacting me. I'll respond as soon as possible.</p>
+    <a href="{% url 'web:index' %}">Home</a>
+    <br>
+    <a href="{% url 'web:contact' %}">Contact</a>
+{% endblock %}
