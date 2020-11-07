@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 from .models import Project
 from .forms import ContactForm
-from portfolio.settings import RECEPIENT_EMAIL
+from portfolio.settings import RECEPIENT_EMAIL, DEFAULT_FROM_EMAIL
 
 # Create your views here.
 def index(request):
@@ -39,18 +39,23 @@ def contact(request):
     """Page containing the contact form plus a bit of info."""
     # SMTP server still not set up
     # https://learndjango.com/tutorials/django-email-contact-form
+
+    #  Slight change, trying out new way of sending the email, doesn't work
     if request.method == 'GET':
         form = ContactForm()
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
+            # from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, [RECEPIENT_EMAIL])
+                send_mail(subject, message, DEFAULT_FROM_EMAIL, [RECEPIENT_EMAIL])
             except BadHeaderError:
                 return HttpResponseRedirect('Invalid header found.')
+            # Only for test purposes
+            # In the future i will make my own logger
+            print('Email Sent!')
             return redirect('web:success')
     return render(request, 'web/contact.html', {'form': form})
 

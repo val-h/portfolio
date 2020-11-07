@@ -12,6 +12,6 @@
     <form action="{% url 'web:contact' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Send</button>
+        <button class="form-button" type="submit">Send</button>
     </form>
 {% endblock%}
