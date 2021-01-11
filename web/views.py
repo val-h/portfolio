@@ -50,6 +50,15 @@ def contact(request):
             # from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
+                # Most likely, smtp server problem
+                # When fail_silently is set to false, It gives authentication error
+                
+                # FINALLY WORKED
+                # The problem was with google and the 'less secure apps', short: even tho i provide the correct
+                # details for logging in, the setting blocks me from sending the email. Enabling it made it work
+
+                # Last step - Design and refining some stuff
+                # also, i might change my work email and overall degoogle myself
                 send_mail(subject, message, DEFAULT_FROM_EMAIL, [RECEPIENT_EMAIL], fail_silently=False)
             except BadHeaderError:
                 return HttpResponseRedirect('Invalid header found.')
