@@ -59,6 +59,8 @@ def contact(request):
 
                 # Last step - Design and refining some stuff
                 # also, i might change my work email and overall degoogle myself
+
+                # SMTP on protonmail is a no no ;d
                 send_mail(subject, message, DEFAULT_FROM_EMAIL, [RECEPIENT_EMAIL], fail_silently=False)
             except BadHeaderError:
                 return HttpResponseRedirect('Invalid header found.')
