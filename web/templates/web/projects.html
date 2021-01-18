@@ -7,17 +7,19 @@
 
 {% block content %}
     <!-- Sample projects build -->
-    <div class="grid-container">
+    <div>
         {% for project in projects %}
         <!-- fookin worked! -->
         <!-- Well the grid layout didnt work-->
-            <a href="{% url 'web:project' project.name %}">
-                <h2 class="grid-title">{{ project.name }}</h2>
-            </a>
-            <p class="grid-desc">{{ project.desc }}</p>
-            <!-- Image problems : | -->
-            <!-- FIXED!, somewhat : D -->
-            <img src="{{ project.cover.url }}" alt="{{ project.cover.url }}" class="grid-image">
+            <div class="grid-container">
+                <a href="{% url 'web:project' project.name %}">
+                    <h2 class="grid-title">{{ project.name }}</h2>
+                </a>
+                <p class="grid-desc">{{ project.desc }}</p>
+                <!-- Image problems : | -->
+                <!-- FIXED!, somewhat : D -->
+                <img src="{{ project.cover.url }}" alt="{{ project.cover.url }}" class="grid-image">
+            </div>
         {% empty %}
             <h2>Too bad, so sad! No projects : (</h2>
         {% endfor %}
